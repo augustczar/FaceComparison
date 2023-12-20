@@ -1,4 +1,4 @@
-## hub-facecomparison
+## hub-facecomparison - under development
 
 ### What
 This API compares two images and returns the highest face similarity threshold.
