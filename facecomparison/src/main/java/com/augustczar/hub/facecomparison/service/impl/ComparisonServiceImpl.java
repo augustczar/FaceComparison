@@ -31,7 +31,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 	 Float similarityThreshold = 70F;
 	 
 	@Override
-	public float compareTwoPhotos(String photo1, String photo2) {
+	public float compareTwoPhotos(String photo1, String photo2) throws Exception {
 		float result = 0f;
 		try {
 			SdkBytes sourceBytes = SdkBytes
