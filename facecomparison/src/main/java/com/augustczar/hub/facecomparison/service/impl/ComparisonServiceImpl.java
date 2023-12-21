@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.augustczar.hub.facecomparison.exception.InvalidImageException;
 import com.augustczar.hub.facecomparison.service.ComparisonService;
 
 import software.amazon.awssdk.core.SdkBytes;
@@ -72,7 +73,7 @@ public class ComparisonServiceImpl implements ComparisonService {
             result = resultMatchFaceMatch.isPresent() ? resultMatchFaceMatch.get().similarity().floatValue() : 0f;
             
 		} catch (InvalidParameterException e) {
-			e.printStackTrace();
+			throw new InvalidImageException();
 		}
 		return result;
 	}
