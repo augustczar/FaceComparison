@@ -14,7 +14,7 @@ public class FacecomparisonApplication {
 	}
 	
 	@Bean
-	public RekognitionClient rekognitionClient() {
+	RekognitionClient rekognitionClient() {
 		return RekognitionClient.create();
 	}
 }
