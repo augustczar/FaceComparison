@@ -26,7 +26,7 @@ custom:
   product: youtube
 
 package:
-  artifact: 'target/facecomparison-0.0.1-SNAPSHOT.jar'
+  artifact: '/home/augustczar/git/FaceComparison/facecomparison/target/facecomparison-0.0.1-SNAPSHOT.jar'
 
 functions:
   app:
@@ -35,5 +35,5 @@ functions:
     events:
     - http:
         cors: true
-        path: 'facecomparison/{proxy+}'
+        path: '/home/augustczar/git/FaceComparison/facecomparison/{proxy+}'
         method: any
