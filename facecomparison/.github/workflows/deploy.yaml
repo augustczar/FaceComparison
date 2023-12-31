@@ -81,7 +81,6 @@ jobs:
     outputs:
       apiGatewayUrl: ${{ steps.manifest.outputs.url }}
       
-
   deployFrontend:
     needs: deployBackend
     environment:
