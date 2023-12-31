@@ -42,13 +42,13 @@ jobs:
         uses: mikepenz/action-junit-report@v3
         if: success() || failure() # always run even if the previous step fails
         with:
-          report_paths: '**/FaceComparison/facecomparison/target/surefire-reports/TEST-*.xml'
+          report_paths: '**/target/surefire-reports/TEST-*.xml'
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: jar-artifacts
-          path: "FaceComparison/facecomparison/target/facecomparison-0.0.1-SNAPSHOT.jar"
+          path: "target/facecomparison-0.0.1-SNAPSHOT.jar"
 
 
   deployBackend:
@@ -102,7 +102,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: 'FaceComparison/facecomparison/src/main/resources/static/'
+          path: 'src/main/resources/static/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
