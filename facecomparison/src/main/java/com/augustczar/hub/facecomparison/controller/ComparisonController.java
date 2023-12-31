@@ -35,8 +35,10 @@ public class ComparisonController {
 	
 	record Status(String status) {
 	}
+	
 	record Input(String photo1, String photo2) {
-	}	
+	}
+	
 	record Output(float similarity) {
 	}
 }
