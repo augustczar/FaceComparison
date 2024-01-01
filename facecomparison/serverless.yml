@@ -1,4 +1,4 @@
-service: hub-facecomparison-api
+service: FaceComparison
 
 provider:
   name: aws
