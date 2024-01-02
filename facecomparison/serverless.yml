@@ -37,3 +37,4 @@ functions:
         cors: true
         path: '/facecomparison/{proxy+}'
         method: any
+        
