@@ -101,7 +101,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: 'src/main/resources/static/'
+          path: 'facecomparison/src/main/resources/static/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
