@@ -64,7 +64,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: jar-artifacts
-          path: target/
+          path: target
       - name: Install Plugin and Deploy
         uses: serverless/github-action@v3.2
         with:
@@ -105,3 +105,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        
