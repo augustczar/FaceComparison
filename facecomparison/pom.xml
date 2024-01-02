@@ -79,8 +79,7 @@
 						<goals>
 							<goal>shade</goal>
 						</goals>
-						<!-- Aqui você pode personalizar o nome do JAR gerado
-						com Tomcat -->
+						<!-- Aqui você pode personalizar o nome do JAR gerado com Tomcat -->
 						<configuration>
 							<finalName>facecomparison-with-tomcat</finalName>
 						</configuration>
