@@ -35,6 +35,6 @@ functions:
     events:
     - http:
         cors: true
-        path: '/facecomparison/{proxy+}'
+        path: 'facecomparison/{proxy+}'
         method: any
         
