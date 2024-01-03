@@ -1,5 +1,6 @@
 package com.augustczar.hub.facecomparison.service.impl;
 
+import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.Base64;
 import java.util.Comparator;
@@ -20,6 +21,7 @@ import software.amazon.awssdk.services.rekognition.model.CompareFacesRequest;
 import software.amazon.awssdk.services.rekognition.model.CompareFacesResponse;
 import software.amazon.awssdk.services.rekognition.model.ComparedFace;
 import software.amazon.awssdk.services.rekognition.model.Image;
+import software.amazon.awssdk.services.rekognition.model.RekognitionException;
 /**
  * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/java_rekognition_code_examples.html
  */
@@ -29,10 +31,11 @@ public class ComparisonServiceImpl implements ComparisonService {
 	@Autowired
 	private RekognitionClient rekognitionClient;
 
-	 Float similarityThreshold = 70F;
+	 Float SIMILARITY_THRESHOLD = 10F;
+	 Float MINIMAL_SIMILARITY = 0F;
 	 
 	@Override
-	public float compareTwoPhotos(String photo1, String photo2) throws Exception {
+	public float compareTwoPhotos(String photo1, String photo2) throws RekognitionException, IOException {
 		float result = 0f;
 		try {
 			SdkBytes sourceBytes = SdkBytes
@@ -50,11 +53,13 @@ public class ComparisonServiceImpl implements ComparisonService {
 			CompareFacesRequest facesRequest = CompareFacesRequest.builder()
 					.sourceImage(souImage)
 					.targetImage(tarImage)
-					.similarityThreshold(similarityThreshold)
+					.similarityThreshold(SIMILARITY_THRESHOLD)
 					.build();
 
 			// Compare the two images.
 			CompareFacesResponse compareFacesResult = rekognitionClient.compareFaces(facesRequest);
+			System.out.println(compareFacesResult.toString());
+			
 			List<CompareFacesMatch> faceDetails = compareFacesResult.faceMatches();
 			for (CompareFacesMatch match : faceDetails) {
 				ComparedFace face = match.face();
@@ -70,7 +75,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 
             // Separa o MAIOR RESULTADO!
             Optional<CompareFacesMatch> resultMatchFaceMatch = faceDetails.stream().max(Comparator.comparing(a -> a.similarity().floatValue()));
-            result = resultMatchFaceMatch.isPresent() ? resultMatchFaceMatch.get().similarity().floatValue() : 0f;
+            result = resultMatchFaceMatch.isPresent() ? resultMatchFaceMatch.get().similarity().floatValue() : MINIMAL_SIMILARITY;
             
 		} catch (InvalidParameterException e) {
 			throw new InvalidImageException();

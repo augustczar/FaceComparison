@@ -2,6 +2,7 @@ package com.augustczar.hub.facecomparison.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.augustczar.hub.facecomparison.service.ComparisonService;
 
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/facecomparison")
+@RequestMapping(path = "/facecomparison", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ComparisonController {
 	
 	@Autowired
