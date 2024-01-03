@@ -18,3 +18,6 @@ First, you need to have Java 17 and Maven installed on your computer. After that
 ## To deploy (aws provider)
 1. Install [serverless framework](https://www.serverless.com/)
 2. run this command: serverless deploy
+
+## Test without clone, exposed on AWS :)
+Just access: https://augustczar.github.io/FaceComparison/
