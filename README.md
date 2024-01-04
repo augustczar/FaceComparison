@@ -10,10 +10,18 @@ This API compares two images and returns the highest face similarity threshold.
 -> Serverless framework<br />
 
 ## You can run it locally or clone and upload it to the Eclipse IDE
+This project was implemented using the Eclipse IDE.
+Then you can clone the project and import it easily into Eclipse.
+
+The original project uses the IntelliJ IDE:
+ https://github.com/miltonhit/hub_facecomparison
+
 First, you need to have Java 17 and Maven installed on your computer. After that, run the following commands in the terminal:
 1. mvn install
 2. java -Dserver.port=8080 -cp target/my-app-with-tomcat.jar com.augustczar.hub.facecomparison.FacecomparisonApplication
 3. Access in your browser: http://localhost:8080/index.html
+
+
 
 ## To deploy (aws provider)
 1. Install [serverless framework](https://www.serverless.com/)
