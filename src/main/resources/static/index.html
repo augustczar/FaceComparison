@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #add8e6; /* Azul Claro */
+        }
+        .container {
+            margin-top: 100px; /* Espaço no topo para centralizar o conteúdo */
+        }
+        h1 {
+            font-family: 'Arial', sans-serif; /* Fonte em negrito e sem serifa */
+        }
+    </style>
 	<title>Selfie Comparison</title>
 	<style>
 		.preview {
@@ -13,6 +25,9 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
 	<h1>Selfie Comparison</h1>
 
 	<form id="uploadForm">
@@ -28,10 +43,14 @@
 		</div>
 
 		<br><br>
-		<button type="submit" id="enviarButton">Submit</button>
+		<button type="submit" id="enviarButton" class="btn btn-primary">Submit</button>
 	</form>
-
-	<p id="similaridadeLabel" style="display: none;">Similarity: <span id="similaridadeValor"></span></p>
+				<p id="similaridadeLabel" style="display: none;">
+					Similarity: <span id="similaridadeValor"></span>
+				</p>
+			</div>
+        </div>
+    </div>
 	<script>
 		const uploadForm = document.getElementById('uploadForm');
 		const foto1Input = document.getElementById('foto1');
@@ -158,6 +177,10 @@
 			}
 		});
 	</script>
+	<!-- Scripts Bootstrap (jQuery e Popper.js são necessários) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
