@@ -1,4 +1,4 @@
-service: hub-facecomparison-api
+service: FaceComparison
 
 provider:
   name: aws
@@ -35,5 +35,6 @@ functions:
     events:
     - http:
         cors: true
-        path: '/facecomparison/{proxy+}'
+        path: 'facecomparison/{proxy+}'
         method: any
+        
